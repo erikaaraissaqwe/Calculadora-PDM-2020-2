@@ -6,71 +6,129 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextView result;
+    private TextView valueTextView;
+    private Double resultFinal = 0.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        result = findViewById(R.id.resultado_tv);
+        valueTextView = findViewById(R.id.resultado_tv);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.zero_bt:
-                result.setText(String.format("%s0", result.getText()));
+                valueTextView.setText(String.format("%s0", valueTextView.getText()));
                 break;
             case R.id.um_bt:
-                result.setText(String.format("%s1", result.getText()));
+                valueTextView.setText(String.format("%s1", valueTextView.getText()));
                 break;
             case R.id.dois_bt:
-                result.setText(String.format("%s2", result.getText()));
+                valueTextView.setText(String.format("%s2", valueTextView.getText()));
                 break;
             case R.id.tres_bt:
-                result.setText(String.format("%s3", result.getText()));
+                valueTextView.setText(String.format("%s3", valueTextView.getText()));
                 break;
             case R.id.quatro_bt:
-                result.setText(String.format("%s4", result.getText()));
+                valueTextView.setText(String.format("%s4", valueTextView.getText()));
                 break;
             case R.id.cinco_bt:
-                result.setText(String.format("%s5", result.getText()));
+                valueTextView.setText(String.format("%s5", valueTextView.getText()));
                 break;
             case R.id.seis_bt:
-                result.setText(String.format("%s6", result.getText()));
+                valueTextView.setText(String.format("%s6", valueTextView.getText()));
                 break;
             case R.id.sete_bt:
-                result.setText(String.format("%s7", result.getText()));
+                valueTextView.setText(String.format("%s7", valueTextView.getText()));
                 break;
             case R.id.oito_bt:
-                result.setText(String.format("%s8", result.getText()));
+                valueTextView.setText(String.format("%s8", valueTextView.getText()));
                 break;
             case R.id.nove_bt:
-                result.setText(String.format("%s9", result.getText()));
+                valueTextView.setText(String.format("%s9", valueTextView.getText()));
                 break;
             case R.id.limpar_bt:
-                result.setText("");
+                valueTextView.setText("");
                 break;
-            /*case R.id.multi_bt:
-                resultado.setText(resultado.getText() + "*");
+            case R.id.multi_bt:
+                valueTextView.setText(String.format("%s*", valueTextView.getText()));
                 break;
             case R.id.dividi_bt:
-                resultado.setText(resultado.getText() + "/");
+                valueTextView.setText(String.format("%s/", valueTextView.getText()));
                 break;
             case R.id.menos_bt:
-                resultado.setText(resultado.getText() + "-");
+                valueTextView.setText(String.format("%s-", valueTextView.getText()));
                 break;
             case R.id.mais_bt:
-                resultado.setText(resultado.getText() + "+");
+                valueTextView.setText(String.format("%s+", valueTextView.getText()));
                 break;
 
             case R.id.igual_bt:
-                resultado.setText(resultado.getText() + "=");
-                break;*/
+                separateString((valueTextView.getText().toString()));
+                break;
 
             default:
                 Toast.makeText(this, "Sinto muito, esse app falhou", Toast.LENGTH_SHORT).show();
         }
     }
-}
+
+    private List separateString(String s){
+        char[] str = s.toCharArray();
+        ArrayList<String> listString = new ArrayList<>();
+        String string = "";
+        int contInicial=0;
+        int contFinal=0;
+        for (char i : str) {
+            if (i == '*') {
+                for (int z = contInicial; z < contFinal; z++) {
+                    string += i;
+                }
+                listString.add(string);
+                listString.add("*");
+                System.out.println(string);
+                contInicial = contFinal + 1;
+                string="";
+            }
+
+            if (i == '/') {
+                for (int z = contInicial; z < contFinal; z++) {
+                    string += i;
+                }
+                listString.add(string);
+                listString.add("/");
+                System.out.println(string);
+                contInicial = contFinal + 1;
+                string="";
+            }
+            if (i == '+') {
+                for (int z = contInicial; z < contFinal; z++) {
+                    string += i;
+                }
+                listString.add(string);
+                listString.add("+");
+                System.out.println(string);
+                contInicial = contFinal + 1;
+                string="";
+            }
+            if (i == '-') {
+                for (int z = contInicial; z < contFinal; z++) {
+                    string += i;
+                }
+                listString.add(string);
+                listString.add("-");
+                System.out.println(string);
+                contInicial = contFinal + 1;
+                string="";
+            }
+            contFinal++;
+        }
+        return listString;
+    }
+ }
+
