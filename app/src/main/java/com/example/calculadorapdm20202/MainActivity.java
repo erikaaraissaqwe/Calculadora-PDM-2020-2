@@ -6,11 +6,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView valueTextView;
+    private Double value1=0.0;
+    private Double value2=0.0;
     private Double resultFinal = 0.0;
 
     @Override
@@ -69,66 +68,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 valueTextView.setText(String.format("%s+", valueTextView.getText()));
                 break;
 
-            case R.id.igual_bt:
-                separateString((valueTextView.getText().toString()));
-                break;
-
             default:
                 Toast.makeText(this, "Sinto muito, esse app falhou", Toast.LENGTH_SHORT).show();
         }
     }
-
-    private List separateString(String s){
-        char[] str = s.toCharArray();
-        ArrayList<String> listString = new ArrayList<>();
-        String string = "";
-        int contInicial=0;
-        int contFinal=0;
-        for (char i : str) {
-            if (i == '*') {
-                for (int z = contInicial; z < contFinal; z++) {
-                    string += i;
-                }
-                listString.add(string);
-                listString.add("*");
-                System.out.println(string);
-                contInicial = contFinal + 1;
-                string="";
-            }
-
-            if (i == '/') {
-                for (int z = contInicial; z < contFinal; z++) {
-                    string += i;
-                }
-                listString.add(string);
-                listString.add("/");
-                System.out.println(string);
-                contInicial = contFinal + 1;
-                string="";
-            }
-            if (i == '+') {
-                for (int z = contInicial; z < contFinal; z++) {
-                    string += i;
-                }
-                listString.add(string);
-                listString.add("+");
-                System.out.println(string);
-                contInicial = contFinal + 1;
-                string="";
-            }
-            if (i == '-') {
-                for (int z = contInicial; z < contFinal; z++) {
-                    string += i;
-                }
-                listString.add(string);
-                listString.add("-");
-                System.out.println(string);
-                contInicial = contFinal + 1;
-                string="";
-            }
-            contFinal++;
+    private void separeteString(String textView, String operador){
+        if (verificaLen(textView)){
+            String[] separador = textView.split(operador);
+            value1= Double.valueOf(String.valueOf(Double.parseDouble(separador[0])));
         }
-        return listString;
+
     }
+
+    private boolean verificaLen(String textView){
+        return textView.length() > 1;
+    }
+
+    private boolean verificaValue(){
+        return value1 != 0.0;
+    }
+
  }
 
