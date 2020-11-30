@@ -1,9 +1,14 @@
 package com.example.calculadorapdm20202;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -15,8 +20,17 @@ import android.widget.Toast;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
     private final String VALUE_TV_RESULT = "VALOR_TV_RESULT";
     private final String VALUE_TV_VISOR = "VALOR_TV_VISOR";
+
+    private final int CALL_PHONE_REQUEST_CODE = 0;
+    private final int CONFIGURACOES_REQUEST_CODE = 1;
+
+    public static final String EXTRA_CONFIGURACOES = "EXTRA_CONFIGURACOES";
+
+    private Configuracoes configuracoes = new Configuracoes(false);
+
     private TextView valueTextView, valueVisor;
     private StringBuilder digitScreen = new StringBuilder();
     private StringBuilder digitScreenAll = new StringBuilder();
@@ -49,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         valueVisor.setText(savedInstanceState.getString(VALUE_TV_VISOR, ""));
 
     }
+
+
 
     protected void onStart() {
         super.onStart();
@@ -86,17 +102,74 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == CALL_PHONE_REQUEST_CODE){
+            for (int resultado : grantResults){
+                if (resultado != PackageManager.PERMISSION_GRANTED){
+                    Toast.makeText(this, "Permissão não concedida", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+            ligarIfsp();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CONFIGURACOES_REQUEST_CODE && resultCode == RESULT_OK && data != null){
+            configuracoes = data.getParcelableExtra(EXTRA_CONFIGURACOES);
+            if (configuracoes != null && configuracoes.getAvancada()){
+                findViewById(R.id.raizquadrada_bt).setVisibility(View.VISIBLE);
+                findViewById(R.id.potencia_bt).setVisibility(View.VISIBLE);
+            }else{
+                findViewById(R.id.raizquadrada_bt).setVisibility(View.GONE);
+                findViewById(R.id.potencia_bt).setVisibility(View.GONE);
+            }
+        }
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
+
             case R.id.configuracoesMi:
-                Intent configuracoesIntent = new Intent(this, ConfiguracoesActivity.class);
-                startActivity(configuracoesIntent);
+                Intent configuracoesIntent = new Intent("CONFIGURACOES");
+                configuracoesIntent.putExtra(EXTRA_CONFIGURACOES, configuracoes);
+                startActivityForResult(configuracoesIntent, CONFIGURACOES_REQUEST_CODE);
                 return true;
+
+            case R.id.siteGoogle:
+            Uri siteGoogleUri = Uri.parse("https://www.google.com");
+            Intent siteGoogleIntent = new Intent(Intent.ACTION_VIEW, siteGoogleUri);
+            startActivity(siteGoogleIntent);
+            return true;
+
+            case R.id.ligarIfsp:
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                    if (checkSelfPermission(Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
+                        requestPermissions(new String[] {Manifest.permission.CALL_PHONE}, CALL_PHONE_REQUEST_CODE);
+                    }
+                }
+                ligarIfsp();
+                return true;
+
             case R.id.sairMi:
                 finish();
                 return true;
+
             default:
                 return false;
+        }
+    }
+    private void ligarIfsp() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+                Uri ligarIfspUri = Uri.parse("tel:1137754501");
+                Intent ligarIfspIntent = new Intent(Intent.ACTION_CALL, ligarIfspUri);
+                startActivity(ligarIfspIntent);
+            }
         }
     }
 
@@ -190,6 +263,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     digitScreenAll.append('/');
                 }
                 break;
+            case R.id.raizquadrada_bt:
+                if (digitScreen.length() > 0) {
+                    try{
+                        value1 = Double.parseDouble(String.valueOf(valueTextView.getText()));
+                        digitScreen.setLength(0);
+                        digitScreenAll.setLength(0);
+                        digitScreenAll.append(Math.sqrt(value1));
+                        digitScreen.append(Math.sqrt(value1));
+                    }catch (NumberFormatException e){
+                        Toast.makeText(this, "Você não digitou um número válido", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                break;
+            case R.id.potencia_bt:
+                if (digitScreen.length() > 0) {
+                    selectOperation('^');
+                    digitScreenAll.append('^');
+                }
+                break;
             case R.id.backspace_bt:
                 clearDigit();
                 break;
@@ -230,6 +322,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case '%':
                     result = value1 % value2;
                     break;
+                case '^':
+                    result = Math.pow(value1, value2);
+                    break;
+
                 default:
                     Toast.makeText(this, "Sinto muito, esse app falhou", Toast.LENGTH_SHORT).show();
             }
@@ -267,7 +363,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else{
            try {
-               value1 = Double.parseDouble(String.valueOf(valueTextView.getText()));
                value1 = Double.parseDouble(String.valueOf(valueTextView.getText()));
                digitScreen.delete(0, digitScreen.length());
                valueTextView.setText(digitScreen);

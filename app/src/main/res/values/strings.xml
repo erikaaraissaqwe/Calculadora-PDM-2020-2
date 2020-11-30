@@ -21,4 +21,13 @@
     <string name="back">backspace</string>
     <string name="configuraces">Configurações</string>
     <string name="sair">Sair</string>
+    <string name="siteIFSP">Site IFSP</string>
+    <string name="siteGoogle">Google</string>
+    <string name="ligarIfsp">Chamar</string>
+    <string name="tipo_da_calculadora">Tipo da Calculadora</string>
+    <string name="avancada">Avançada</string>
+    <string name="basica">Básica</string>
+    <string name="salvar_mudancas">Salvar mudanças</string>
+    <string name="exponencial">Exponencial</string>
+    <string name="raiz">Raiz</string>
 </resources>

@@ -9,9 +9,26 @@
         android:orderInCategory="1"/>
 
     <item
+        android:id="@+id/ligarIfsp"
+        android:title="@string/ligarIfsp"
+        android:icon="@drawable/ic_call"
+        app:showAsAction="always"
+        android:orderInCategory="2"/>
+
+    <item
+        android:id="@+id/siteGoogle"
+        android:title="@string/siteGoogle"
+        app:showAsAction="never"
+        android:orderInCategory="3"/>
+
+    <item
         android:id="@+id/sairMi"
         android:title="@string/sair"
         android:icon="@drawable/ic_sair"
-        app:showAsAction="ifRoom"
-        android:orderInCategory="2"/>
+        app:showAsAction="never"
+        android:orderInCategory="4"/>
+
+
+
+
 </menu>

@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="16dp"
         tools:ignore="ExtraText">
         app:layout_constraintEnd_toEndOf="@id/result_id"
@@ -60,8 +60,8 @@
             <Button
                 android:id="@+id/limpar_bt"
                 android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
+                android:layout_height="70dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
@@ -71,8 +71,8 @@
             <Button
                 android:id="@+id/backspace_bt"
                 android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
+                android:layout_height="70dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
@@ -82,8 +82,8 @@
             <Button
                 android:id="@+id/divide_bt"
                 android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
+                android:layout_height="70dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
@@ -100,8 +100,8 @@
             <Button
                 android:id="@+id/nove_bt"
                 android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
+                android:layout_height="70dp"
+                android:layout_margin="6dp"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
@@ -112,8 +112,8 @@
             <Button
                 android:id="@+id/oito_bt"
                 android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
+                android:layout_height="70dp"
+                android:layout_margin="6dp"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
@@ -125,8 +125,8 @@
             <Button
                 android:id="@+id/sete_bt"
                 android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
+                android:layout_height="70dp"
+                android:layout_margin="6dp"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
@@ -137,8 +137,8 @@
             <Button
                 android:id="@+id/multi_bt"
                 android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
+                android:layout_height="70dp"
+                android:layout_margin="6dp"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
@@ -156,8 +156,8 @@
             <Button
                 android:id="@+id/seis_bt"
                 android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
+                android:layout_height="70dp"
+                android:layout_margin="6dp"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
@@ -168,8 +168,8 @@
             <Button
                 android:id="@+id/cinco_bt"
                 android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
+                android:layout_height="70dp"
+                android:layout_margin="6dp"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
@@ -180,8 +180,8 @@
             <Button
                 android:id="@+id/quatro_bt"
                 android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
+                android:layout_height="70dp"
+                android:layout_margin="6dp"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
@@ -192,8 +192,8 @@
             <Button
                 android:id="@+id/mais_bt"
                 android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
+                android:layout_height="70dp"
+                android:layout_margin="6dp"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
@@ -213,8 +213,8 @@
             <Button
                 android:id="@+id/tres_bt"
                 android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
+                android:layout_height="70dp"
+                android:layout_margin="6dp"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
@@ -225,8 +225,8 @@
             <Button
                 android:id="@+id/dois_bt"
                 android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
+                android:layout_height="70dp"
+                android:layout_margin="6dp"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
@@ -237,8 +237,8 @@
             <Button
                 android:id="@+id/um_bt"
                 android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
+                android:layout_height="70dp"
+                android:layout_margin="6dp"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
@@ -249,8 +249,8 @@
             <Button
                 android:id="@+id/menos_bt"
                 android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
+                android:layout_height="70dp"
+                android:layout_margin="6dp"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
@@ -270,8 +270,8 @@
             <Button
                 android:id="@+id/modulo_bt"
                 android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
+                android:layout_height="70dp"
+                android:layout_margin="6dp"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
@@ -282,8 +282,8 @@
             <Button
                 android:id="@+id/zero_bt"
                 android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
+                android:layout_height="70dp"
+                android:layout_margin="6dp"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
@@ -295,8 +295,8 @@
             <Button
                 android:id="@+id/ponto_bt"
                 android:layout_width="50dp"
-                android:layout_height="80dp"
-                android:layout_margin="8dp"
+                android:layout_height="70dp"
+                android:layout_margin="6dp"
                 android:layout_weight="1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
@@ -307,14 +307,45 @@
                 <Button
                     android:id="@+id/igual_bt"
                     android:layout_width="50dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="8dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="6dp"
                     android:layout_weight="1"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:background="@drawable/round_bt"
                     android:onClick="onClick"
                     android:text="@string/igual"
                     tools:ignore="ButtonStyle" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/raizquadrada_bt"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_margin="6dp"
+            android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:background="@drawable/round_bt"
+            android:onClick="onClick"
+            android:text="@string/raiz"
+            android:visibility="gone"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:id="@+id/potencia_bt"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_margin="6dp"
+            android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:background="@drawable/round_bt"
+            android:onClick="onClick"
+            android:text="@string/exponencial"
+            android:visibility="gone"
+            tools:ignore="ButtonStyle" />
         </LinearLayout>
     </GridLayout>
 </LinearLayout>

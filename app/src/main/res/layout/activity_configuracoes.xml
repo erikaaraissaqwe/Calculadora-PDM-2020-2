@@ -5,5 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ConfiguracoesActivity">
+    <TextView
+        android:id="@+id/tipoCalculadoraTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/text_bg"
+        android:padding="10dp"
+        android:text="@string/tipo_da_calculadora"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/tipoCalculadoraRg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tipoCalculadoraTv">
+
+        <RadioButton
+            android:id="@+id/avancadoRb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/avancada"
+            />
+        <RadioButton
+            android:id="@+id/normalRb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/basica"
+            />
+    </RadioGroup>
+    <Button
+        android:id="@+id/salvarBt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tipoCalculadoraRg"
+        android:onClick="onClick"
+        android:text="@string/salvar_mudancas"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
