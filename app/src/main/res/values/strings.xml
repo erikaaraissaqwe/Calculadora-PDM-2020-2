@@ -19,4 +19,6 @@
     <string name="modulo">%</string>
     <string name="ponto">.</string>
     <string name="back">backspace</string>
+    <string name="configuraces">Configurações</string>
+    <string name="sair">Sair</string>
 </resources>

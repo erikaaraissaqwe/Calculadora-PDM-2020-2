@@ -2,11 +2,17 @@ package com.example.calculadorapdm20202;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private final String VALUE_TV_RESULT = "VALOR_TV_RESULT";
@@ -24,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         valueTextView = findViewById(R.id.resultado_tv);
         valueVisor = findViewById(R.id.visor_tv);
+        Objects.requireNonNull(getSupportActionBar()).setSubtitle("Tela principal");
     }
 
     @Override
@@ -70,6 +77,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onDestroy() {
         super.onDestroy();
         Log.v(getString(R.string.app_name), "onDestroy executado - ciclo encerrado");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.configuracoesMi:
+                Intent configuracoesIntent = new Intent(this, ConfiguracoesActivity.class);
+                startActivity(configuracoesIntent);
+                return true;
+            case R.id.sairMi:
+                finish();
+                return true;
+            default:
+                return false;
+        }
     }
 
     @Override
