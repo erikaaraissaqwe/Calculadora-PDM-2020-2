@@ -7,15 +7,31 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+    <TextView
+        android:id="@+id/visor_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/text_bg"
+        android:padding="2dp"
+        android:text=""
+        android:textAlignment="viewEnd"
+        android:textSize="25sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <TextView
         android:id="@+id/resultado_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
         android:background="@drawable/text_bg"
-        android:padding="8dp"
-        android:text="0"
+        android:padding="7dp"
+        android:text="@string/_0"
         android:textAlignment="viewEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,8 +43,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="16dp">
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="16dp"
+        tools:ignore="ExtraText">
+        app:layout_constraintEnd_toEndOf="@id/result_id"
+        app:layout_constraintStart_toStartOf="@id/result_id"
+        app:layout_constraintTop_toBottomOf="@id/result_id">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,7 +64,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
-                android:text="@string/c" />
+                android:text="@string/c"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/backspace_bt"
@@ -54,7 +75,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
-                android:text="@string/back" />
+                android:text="@string/back"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/divide_bt"
@@ -64,7 +86,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
-                android:text="@string/divide" />
+                android:text="@string/divide"
+                tools:ignore="ButtonStyle" />
         </LinearLayout>
 
         <LinearLayout
@@ -82,7 +105,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
-                android:text="@string/_9" />
+                android:text="@string/_9"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/oito_bt"
@@ -93,7 +117,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
-                android:text="@string/_8" />
+                android:text="@string/_8"
+                tools:ignore="ButtonStyle" />
 
 
             <Button
@@ -105,7 +130,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
-                android:text="@string/_7" />
+                android:text="@string/_7"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/multi_bt"
@@ -116,7 +142,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
-                android:text="@string/multi" />
+                android:text="@string/multi"
+                tools:ignore="ButtonStyle" />
         </LinearLayout>
 
         <LinearLayout
@@ -134,7 +161,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
-                android:text="@string/_6" />
+                android:text="@string/_6"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/cinco_bt"
@@ -145,7 +173,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
-                android:text="@string/_5" />
+                android:text="@string/_5"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/quatro_bt"
@@ -156,7 +185,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
-                android:text="@string/_4" />
+                android:text="@string/_4"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/mais_bt"
@@ -167,7 +197,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
-                android:text="@string/mais" />
+                android:text="@string/mais"
+                tools:ignore="ButtonStyle" />
 
 
         </LinearLayout>
@@ -187,7 +218,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
-                android:text="@string/_3" />
+                android:text="@string/_3"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/dois_bt"
@@ -198,7 +230,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
-                android:text="@string/_2" />
+                android:text="@string/_2"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/um_bt"
@@ -209,7 +242,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
-                android:text="@string/_1" />
+                android:text="@string/_1"
+                tools:ignore="ButtonStyle" />
             
             <Button
                 android:id="@+id/menos_bt"
@@ -220,7 +254,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
-                android:text="@string/menos" />
+                android:text="@string/menos"
+                tools:ignore="ButtonStyle" />
 
         </LinearLayout>
 
@@ -240,7 +275,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
-                android:text="@string/modulo" />
+                android:text="@string/modulo"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/zero_bt"
@@ -251,7 +287,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
-                android:text="@string/_0" />
+                android:text="@string/_0"
+                tools:ignore="ButtonStyle" />
 
 
             <Button
@@ -263,7 +300,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:background="@drawable/round_bt"
                 android:onClick="onClick"
-                android:text="@string/ponto" />
+                android:text="@string/ponto"
+                tools:ignore="ButtonStyle" />
 
                 <Button
                     android:id="@+id/igual_bt"
@@ -274,10 +312,8 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:background="@drawable/round_bt"
                     android:onClick="onClick"
-                    android:text="@string/igual" />
-
-
-
+                    android:text="@string/igual"
+                    tools:ignore="ButtonStyle" />
         </LinearLayout>
     </GridLayout>
 </LinearLayout>

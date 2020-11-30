@@ -12,14 +12,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private StringBuilder digitScreenAll = new StringBuilder();
     private char operation;
     private Double value1=0.0;
-    private Double value2=0.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         valueTextView = findViewById(R.id.resultado_tv);
-        //valueVisor = findViewById(R.id.visor_tv);
+        valueVisor = findViewById(R.id.visor_tv);
     }
 
     @Override
@@ -68,8 +67,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.limpar_bt:
                 digitScreen.delete(0, digitScreen.length());
-                digitScreenAll.delete(0, digitScreen.length());
+                digitScreenAll.delete(0, digitScreenAll.length());
                 valueTextView.setText("");
+                valueVisor.setText("");
                 value1 =  0.0;
                 break;
             case R.id.multi_bt:
@@ -100,49 +100,61 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 clearDigit();
                 break;
             case R.id.igual_bt:
+                digitScreen.delete(0, digitScreen.length());
+                digitScreenAll.delete(0, digitScreenAll.length());
                 performMathOp();
                 break;
             default:
                 Toast.makeText(this, "Sinto muito, esse app falhou", Toast.LENGTH_SHORT).show();
         }
         valueTextView.setText(digitScreen);
+        valueVisor.setText(digitScreenAll);
     }
 
     private void performMathOp() {
-        value2 = Double.parseDouble(String.valueOf(valueTextView.getText()));
-        digitScreen.delete(0, digitScreen.length());
-        digitScreenAll.delete(0, digitScreen.length());
-
+        Double value2 = Double.parseDouble(String.valueOf(valueTextView.getText()));
+        double result = 0.0;
         switch (operation){
             case '+':
-                double sum = value1 + value2;
-                digitScreen.append(sum);
+                result = value1 + value2;
                 break;
             case '-':
-                double sub = value1 - value2;
-                digitScreen.append(sub);
+                result = value1 - value2;
                 break;
             case '*':
-                double multi = value1 * value2;
-                digitScreen.append(multi);
+                result = value1 * value2;
                 break;
             case '/':
-                double div = value1 / value2;
-                digitScreen.append(div);
+                 result = value1 / value2;
                 break;
             case '%':
-                double mod = value1 % value2;
-                digitScreen.append(mod);
+                result = value1 % value2;
                 break;
+            default:
+                Toast.makeText(this, "Sinto muito, esse app falhou", Toast.LENGTH_SHORT).show();
         }
+        digitScreen.append(result);
+        digitScreenAll.append(result);
         valueTextView.setText(digitScreen);
+        valueVisor.setText("");
+        valueVisor.setText(digitScreenAll);
     }
 
     private void clearDigit() {
-        digitScreen.delete(digitScreen.length()-1, digitScreen.length()) ;
-        digitScreenAll.delete(digitScreen.length()-1, digitScreen.length()) ;
+        if (digitScreen.length() > 1){
+            digitScreen.delete(digitScreen.length()-1, digitScreen.length()) ;
+            digitScreenAll.delete(digitScreen.length()-1, digitScreen.length()) ;
+        }
+        else if(digitScreen.length() == 1){
+            digitScreen.delete(0, digitScreen.length()) ;
+            digitScreenAll.delete(0, digitScreen.length());
+            digitScreen.append("0");
+            digitScreenAll.append("");
+        }
         valueTextView.setText("");
+        valueVisor.setText("");
         valueTextView.setText(digitScreen);
+        valueVisor.setText(digitScreenAll);
     }
 
     private void selectOperation(char c){
