@@ -12,7 +12,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
         android:background="@drawable/text_bg"
-        android:padding="15dp"
+        android:padding="10dp"
         android:text="@string/tipo_da_calculadora"
         android:textAlignment="center"
         android:textSize="30sp"
@@ -36,14 +36,14 @@
             android:id="@+id/avancadoRb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5pt"
+            android:padding="10dp"
             android:text="@string/avancada"
             />
         <RadioButton
             android:id="@+id/normalRb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5pt"
+            android:padding="10dp"
             android:text="@string/basica"
             />
     </RadioGroup>
@@ -53,6 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
+        android:padding="5dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
