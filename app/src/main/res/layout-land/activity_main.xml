@@ -331,6 +331,7 @@
             android:background="@drawable/round_bt"
             android:onClick="onClick"
             android:text="@string/raiz"
+            android:visibility="gone"
             tools:ignore="ButtonStyle" />
         <Button
             android:id="@+id/potencia_bt"
@@ -342,6 +343,7 @@
             android:background="@drawable/round_bt"
             android:onClick="onClick"
             android:text="@string/exponencial"
+            android:visibility="gone"
             tools:ignore="ButtonStyle" />
         </LinearLayout>
     </GridLayout>
